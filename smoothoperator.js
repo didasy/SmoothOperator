@@ -41,7 +41,7 @@ options = {
 				latency = 'low';
 			} else if (delta < options.medium) { // medium latency
 				latency = 'medium';
-			} else if (delta > options.high) { // high latency
+			} else if (delta < options.high || delta > options.high) { // high latency
 				latency = 'high';
 			}
 			// now load the arrOfSrc and append to target based on latency
