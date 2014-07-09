@@ -15,7 +15,7 @@ tag : the element type
 example : 
 arrOfSrc = [
 	{
-		latency : 1000,
+		latency : 'high',
 		src : '/static/smallimage.jpg',
 		tag : 'img'
 	}

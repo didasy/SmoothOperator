@@ -16,7 +16,7 @@ targetElement : where to append the results
 
 arrOfSrc is an array containing objects with :
 
-latency : the proper latency for this source
+latency : the proper latency for this source >> `"low" | "medium" | "high" | "all"`
 
 src : the source of this element
 
@@ -27,7 +27,7 @@ example :
 ```
 arrOfSrc = [
 	{
-		latency : 1000,
+		latency : 'high',
 		src : '/static/smallimage.jpg',
 		tag : 'img'
 	}
