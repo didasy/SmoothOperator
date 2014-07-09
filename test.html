@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+;(function ($) {
+	'use strict';
+	$.SmoothOp = function (arrOfSrc, options) {
+		// test the water
+		var now = Date.now();
+		$.get(options.url).done(function (data) {
+			// check the threshold
+			var delta = Date.now() - now;
+            console.log(delta);
+			var latency;
+			if (delta < options.low) { // low latency
+				latency = 'low';
+			} else if (delta < options.medium) { // medium latency
+				latency = 'medium';
+			} else if (delta > options.high) { // high latency
+				latency = 'high';
+			}
+			// now load the arrOfSrc and append to target based on latency
+			arrOfSrc.forEach(function (el) {
+				if (el.latency === latency || el.latency === 'all') {
+					var element = document.createElement(el.tag);
+					element.src = el.src;
+					$(element).appendTo(options.targetElement);
+				}
+			});
+			console.log('Finished adding proper elements');
+		}).fail(function () {
+			throw new Error('Remote server not responding');
+		});
+	};
+})(jQuery);
+
+var arr = [{
+  latency : 'high',
+  src : 'http://placehold.it/100/100',
+  tag : 'img'
+}, {
+  latency : 'medium',
+  src : 'http://placehold.it/200/200',
+  tag : 'img'
+}, {
+  latency : 'low',
+  src : 'http://placehold.it/300/300',
+  tag : 'img'
+}];
+
+var options = {
+  url : '/',
+  low : 100,
+  medium : 200,
+  high : 300,
+  targetElement : 'body'
+};
+
+$.SmoothOp(arr, options);
+</script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+
+</body>
+</html>
