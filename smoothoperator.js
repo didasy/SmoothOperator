@@ -37,11 +37,11 @@ options = {
 			// check the threshold
 			var delta = Date.now() - now;
 			var latency;
-			if (delta < options.low) { // low latency
+			if (delta <= options.low) { // low latency
 				latency = 'low';
-			} else if (delta < options.medium) { // medium latency
+			} else if (delta <= options.medium) { // medium latency
 				latency = 'medium';
-			} else if (delta < options.high || delta > options.high) { // high latency
+			} else if (delta <= options.high || delta > options.high) { // high latency
 				latency = 'high';
 			}
 			// now load the arrOfSrc and append to target based on latency
