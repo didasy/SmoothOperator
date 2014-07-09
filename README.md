@@ -41,3 +41,7 @@ options = {
 }
 $.SmoothOp(arrOfSrc, options);
 ```
+
+
+## DEMO
+`npm install -g http-server` then move to this directory, then `http-server`. Now you can visit `http://localhost:8080` with your browser.
