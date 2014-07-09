@@ -12,7 +12,7 @@ medium : your medium latency threshold in ms
 
 high : your high latency threshold in ms
 
-targetElemet : where to append the results
+targetElement : where to append the results
 
 arrOfSrc is an array containing objects with :
 
