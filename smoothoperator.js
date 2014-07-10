@@ -17,7 +17,8 @@ arrOfSrc = [
 	{
 		latency : 'high',
 		src : '/static/smallimage.jpg',
-		tag : 'img'
+		tag : 'img',
+		targetElement : '.image'
 	}
 ]
 options = {
@@ -49,7 +50,10 @@ options = {
 				if (el.latency === latency || el.latency === 'all') {
 					var element = document.createElement(el.tag);
 					element.src = el.src;
-					$(element).appendTo(options.targetElement);
+					if (!el.targetElement) {
+						return $(element).appendTo(options.targetElement);
+					}
+					$(element).appendTo(el.targetElement);
 				}
 			});
 			console.log('Finished adding proper elements');

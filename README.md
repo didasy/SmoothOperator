@@ -12,7 +12,7 @@ medium : your medium latency threshold in ms
 
 high : your high latency threshold in ms
 
-targetElement : where to append the results
+targetElement : where to append the results (append all of arrOfSrc to this element)
 
 arrOfSrc is an array containing objects with :
 
@@ -21,6 +21,8 @@ latency : the proper latency for this source >> `"low" | "medium" | "high" | "al
 src : the source of this element
 
 tag : the element type
+
+targetElement : target element for this and only this source
 
 example : 
 
